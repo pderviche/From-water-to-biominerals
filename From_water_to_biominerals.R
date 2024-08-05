@@ -83,7 +83,7 @@ library(dplyr)
 rm(list = ls())
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Read data water
 water <- read.csv2("water_chemistry.csv")
@@ -171,7 +171,7 @@ ggplot(data = water, aes(y = Temp, x = Order)) +
 #######
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Read data water
 data <- read.csv2("ID333.csv")
@@ -227,7 +227,7 @@ library(car)
 rm(list = ls())
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 ####
 # Read data of water chemistry
@@ -1006,7 +1006,7 @@ plot(profile_ci) +
 rm(list = ls())
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 ####
 # Read data of water chemistry
@@ -1115,7 +1115,7 @@ length(unique(sliding1$ID))
 rm(list = ls())
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #read dataset
 data <- read.csv2("correction.csv")
@@ -1219,7 +1219,7 @@ library(rcompanion)
 ############
 
 #Set directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Clean R environment 
 rm(list = ls())
@@ -1342,7 +1342,7 @@ sd(data$Fulton)
 ############
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Clean R environment 
 rm(list = ls())
@@ -1652,7 +1652,7 @@ ggarrange(Mg,Mn,Cu,Zn,Sr,Ba,
 ############
 
 #Set directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Clean R environment 
 rm(list = ls())
@@ -1832,7 +1832,7 @@ dunnTest(Ba138 ~ Month, data = data,method="bonferroni") #post hoc
 ########
 
 #Set directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Clean R environment 
 rm(list = ls())
@@ -1892,13 +1892,13 @@ letter_Mg
 letter_Mg <- merge(letter_Mg, cld_Mg, by = "Month")
 letter_Mg
 
-
 Mg24 <-  ggplot(data_Mg, aes(x=Month, y=Mg24)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=80, ymax=450, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=80, ymax=450, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=120, ymax=500, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=120, ymax=500, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4, color = "#008080") +
-  geom_line(data = data_Mg, aes(y = MgCam*scaleMg, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = MgCam*scaleMg, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Mg, aes(y = MgCam*scaleMg, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -1948,8 +1948,9 @@ Mn55 <-  ggplot(data_Mn, aes(x=Month, y=Mn55)) +
   annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=6.5, alpha=0.15, fill='#999999')+
   annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=6.5, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1 ,width=0.4, color = "#008080") +
-  geom_line(data = data_Mn, aes(y = MnCam/scaleMn, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = MnCam/scaleMn, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Mn, aes(y =  MnCam/scaleMn, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -1998,8 +1999,9 @@ Cu65 <-  ggplot(data_Cu, aes(x=Month, y=Cu65)) +
   annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=2.1, alpha=0.15, fill='#999999')+
   annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=2.1, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
-  geom_line(data = data_Cu, aes(y = CuCa/scaleCu, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = CuCa/scaleCu, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Cu, aes(y =  CuCa/scaleCu, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -2051,8 +2053,9 @@ Zn66 <-  ggplot(data_Zn, aes(x=Month, y=Zn66)) +
   annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=8, alpha=0.15, fill='#999999')+
   annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=8, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
-  geom_line(data = data_Zn, aes(y = ZnCam*scaleZn, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = ZnCam*scaleZn, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Zn, aes(y = ZnCam*scaleZn, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -2065,7 +2068,6 @@ Zn66 <-  ggplot(data_Zn, aes(x=Month, y=Zn66)) +
   geom_text(data = letter_Zn, aes(x = Month, y = quant, label = Letter), vjust=-8, size = 4.5,color = "#008080")
 
 Zn66
-
 
 # Sr
 data_Sr <- data
@@ -2100,8 +2102,9 @@ Sr87 <-  ggplot(data_Sr, aes(x=Month, y=Sr87m)) +
   annotate('rect', xmin=3.5, xmax=6.5, ymin=1.7, ymax=4.7, alpha=0.15, fill='#999999')+
   annotate('rect', xmin=9.5, xmax=12.5, ymin=1.7, ymax=4.7, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
-  geom_line(data = data_Sr, aes(y = SrCam/scaleSr, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = SrCam/scaleSr, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Sr, aes(y = SrCam/scaleSr, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -2114,7 +2117,6 @@ Sr87 <-  ggplot(data_Sr, aes(x=Month, y=Sr87m)) +
   geom_text(data = letter_Sr, aes(x = Month, y = quant, label = Letter), vjust=-8, size = 4.5,color = "#008080")
 
 Sr87
-
 
 # Ba
 data_Ba<-data
@@ -2145,11 +2147,12 @@ letter_Ba <- merge(letter_Ba, cld_Ba, by = "Month")
 letter_Ba
 
 Ba138 <-  ggplot(data_Ba, aes(x=Month, y=Ba138)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=165, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=165, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=-10, ymax=165, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=-10, ymax=165, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
-  geom_line(data = data_Ba, aes(y = BaCam*scaleBa, x = Order),color = "#00BFFF", size = 0.3,alpha=1)+
-  geom_point(aes(y = BaCam*scaleBa, x = Order),color = "#00BFFF")+
+  geom_smooth(data = data_Ba, aes(y = BaCam*scaleBa, x = Order),
+              alpha=1, size = 0.7,color='#00BFFF',
+              method="lm", formula = y ~ splines::bs(x, 3), se = FALSE)+
   theme_bw() +
   theme(legend.position="none",
         axis.text = element_text(size = 15),
@@ -2177,9 +2180,6 @@ ggarrange(Mg24,Mn55,Cu65,Zn66,Sr87,Ba138,
           ncol = 2, nrow =3,
           legend = "none")
 #1200 x 1200
-
-
-
 
 
 
@@ -2432,7 +2432,7 @@ ggarrange(Mg,Mn,Cu,Zn,Sr,Ba,
 ########
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Clean R environment
 rm(list = ls())
@@ -2824,7 +2824,7 @@ library(scales)
 rm(list = ls())
 
 #Set working directory
-setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
+setwd("C:/Users/you directory")
 
 #Read data water
 data <- read.csv2("data_m1_e3.csv")
