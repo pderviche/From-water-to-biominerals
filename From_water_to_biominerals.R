@@ -1832,7 +1832,7 @@ dunnTest(Ba138 ~ Month, data = data,method="bonferroni") #post hoc
 ########
 
 #Set directory
-setwd("C:/Users/you directory")
+setwd("C:/Users/patri/OneDrive/Documentos/UFES/Tese/From water to biominerals/R/github")
 
 #Clean R environment 
 rm(list = ls())
@@ -1893,8 +1893,8 @@ letter_Mg <- merge(letter_Mg, cld_Mg, by = "Month")
 letter_Mg
 
 Mg24 <-  ggplot(data_Mg, aes(x=Month, y=Mg24)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=120, ymax=500, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=120, ymax=500, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=170, ymax=500, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=170, ymax=500, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4, color = "#008080") +
   geom_smooth(data = data_Mg, aes(y = MgCam*scaleMg, x = Order),
               alpha=1, size = 0.7,color='#00BFFF',
@@ -1923,7 +1923,7 @@ data_Mn <- data_Mn %>%  filter(!(ID == 'ID327' & Time == '70.2'))
 data_Mn$MnCam <- data_Mn$MnCa/1000 
 
 #set scale
-scaleMn<- 12
+scaleMn<- 4.5
 
 #letters based on post hoc Dunn's test
 dunn_Mn <- dunnTest(Mn55 ~ Month, data = data_Mn, method = "bonferroni")$res
@@ -2028,7 +2028,7 @@ data_Zn <- data_Zn %>%  filter(!(ID == 'ID508' & Time == '47.5'))
 data_Zn$ZnCam <- data_Zn$ZnCa/1000 
 
 #set scale
-scaleZn<-1
+scaleZn<-2.5
 
 #letters based on post hoc Dunn's test
 dunn_Zn <- dunnTest(Zn66 ~ Month, data = data_Zn, method = "bonferroni")$res
@@ -2050,8 +2050,8 @@ letter_Zn <- merge(letter_Zn, cld_Zn, by = "Month")
 letter_Zn
 
 Zn66 <-  ggplot(data_Zn, aes(x=Month, y=Zn66)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=8, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=8, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=0, ymax=7.5, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=0, ymax=7.5, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
   geom_smooth(data = data_Zn, aes(y = ZnCam*scaleZn, x = Order),
               alpha=1, size = 0.7,color='#00BFFF',
@@ -2099,8 +2099,8 @@ letter_Sr <- merge(letter_Sr, cld_Sr, by = "Month")
 letter_Sr
 
 Sr87 <-  ggplot(data_Sr, aes(x=Month, y=Sr87m)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=1.7, ymax=4.7, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=1.7, ymax=4.7, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=1.7, ymax=4.5, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=1.7, ymax=4.5, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
   geom_smooth(data = data_Sr, aes(y = SrCam/scaleSr, x = Order),
               alpha=1, size = 0.7,color='#00BFFF',
@@ -2113,7 +2113,7 @@ Sr87 <-  ggplot(data_Sr, aes(x=Month, y=Sr87m)) +
         axis.title.y = element_text(color = "#008080",size = 15),
         axis.title.y.right = element_text(color = "#00BFFF")) +
   xlab("") + ylab(expression(Sr:Ca[otolith]~(mmol~mol^-1)))+
-  scale_y_continuous(limits = c(1.7, 4.7), sec.axis = sec_axis(~.*scaleSr, name=expression(Sr:Ca[water]~ (mmol~mol^-1))))+
+  scale_y_continuous(sec.axis = sec_axis(~.*scaleSr, name=expression(Sr:Ca[water]~ (mmol~mol^-1))))+
   geom_text(data = letter_Sr, aes(x = Month, y = quant, label = Letter), vjust=-8, size = 4.5,color = "#008080")
 
 Sr87
@@ -2125,7 +2125,7 @@ data_Ba<-data
 data_Ba$BaCam <- data$BaCa/1000 
 
 #set scale
-scaleBa<-2.5
+scaleBa<-6
 
 #letters based on post hoc Dunn's test
 dunn_Ba <- dunnTest(Ba138 ~ Month, data = data_Ba, method = "bonferroni")$res
@@ -2147,8 +2147,8 @@ letter_Ba <- merge(letter_Ba, cld_Ba, by = "Month")
 letter_Ba
 
 Ba138 <-  ggplot(data_Ba, aes(x=Month, y=Ba138)) +
-  annotate('rect', xmin=3.5, xmax=6.5, ymin=-10, ymax=165, alpha=0.15, fill='#999999')+
-  annotate('rect', xmin=9.5, xmax=12.5, ymin=-10, ymax=165, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=3.5, xmax=6.5, ymin=-15, ymax=165, alpha=0.15, fill='#999999')+
+  annotate('rect', xmin=9.5, xmax=12.5, ymin=-15, ymax=165, alpha=0.15, fill='#999999')+
   geom_boxplot(alpha = 1,width=0.4,color = "#008080") +
   geom_smooth(data = data_Ba, aes(y = BaCam*scaleBa, x = Order),
               alpha=1, size = 0.7,color='#00BFFF',
