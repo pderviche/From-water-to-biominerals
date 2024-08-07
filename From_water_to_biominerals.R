@@ -17,7 +17,7 @@
         #1.2 Figure 3b - Scatter plot of laser ablation ICP-MS (ID333)..................................line 165
         #1.3 Searching for the best temporal window.....................................................line 210
               #Element selection - coefficient of variation 
-        #1.4 Save dataset with one month correction.....................................................line 1000
+        #1.4 Save dataset with one month .....................................................line 1000
         #1.5 Figure 4 - One month correction............................................................line 1110
 
   #2. Checking data / Statistical analysis..............................................................line 1200
@@ -1118,7 +1118,7 @@ rm(list = ls())
 setwd("C:/Users/you directory")
 
 #read dataset
-data <- read.csv2("correction.csv")
+data <- read.csv2("window.csv")
 
 #Description of 'water' data
 #'Ba138' is the otolith signature (Ba:Ca) expressed in umol mol-1
