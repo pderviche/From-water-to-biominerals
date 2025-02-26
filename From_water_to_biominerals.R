@@ -1,4 +1,4 @@
-#R Code constructed in February 04, 2025 by Patrick Derviche ad Marcelo Soeth
+#R Code constructed in February 25, 2025 by Patrick Derviche and Marcelo Soeth
 
 #################################################################################### 
 #From water to biominerals: what drives the chemical incorporation in the otolith matrix of juvenile snappers?
